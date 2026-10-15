@@ -1,0 +1,124 @@
+@import "tailwindcss";
+@import "./kit/tokens.css";
+
+/*
+ * Tailwind utilities for the iOS tokens. Colours resolve to the --ios-* vars,
+ * so they follow the device's light/dark theme automatically.
+ *   bg-grouped-bg  text-label-secondary  text-tint  border-separator
+ *   text-large-title  text-headline  text-body  text-footnote ...
+ */
+@theme inline {
+  --color-tint: var(--ios-tint);
+  --color-ios-blue: var(--ios-blue);
+  --color-ios-green: var(--ios-green);
+  --color-ios-red: var(--ios-red);
+  --color-ios-orange: var(--ios-orange);
+  --color-ios-yellow: var(--ios-yellow);
+  --color-ios-pink: var(--ios-pink);
+  --color-ios-purple: var(--ios-purple);
+  --color-ios-teal: var(--ios-teal);
+  --color-ios-cyan: var(--ios-cyan);
+  --color-ios-indigo: var(--ios-indigo);
+  --color-ios-mint: var(--ios-mint);
+  --color-ios-brown: var(--ios-brown);
+  --color-ios-gray: var(--ios-gray);
+  --color-ios-gray2: var(--ios-gray2);
+  --color-ios-gray3: var(--ios-gray3);
+  --color-ios-gray4: var(--ios-gray4);
+  --color-ios-gray5: var(--ios-gray5);
+  --color-ios-gray6: var(--ios-gray6);
+
+  --color-label: var(--ios-label);
+  --color-label-secondary: var(--ios-label-secondary);
+  --color-label-tertiary: var(--ios-label-tertiary);
+  --color-label-quaternary: var(--ios-label-quaternary);
+
+  --color-background: var(--ios-bg);
+  --color-background-secondary: var(--ios-bg-secondary);
+  --color-background-tertiary: var(--ios-bg-tertiary);
+  --color-grouped-bg: var(--ios-grouped-bg);
+  --color-grouped-bg-secondary: var(--ios-grouped-bg-secondary);
+  --color-grouped-bg-tertiary: var(--ios-grouped-bg-tertiary);
+
+  --color-fill: var(--ios-fill);
+  --color-fill-secondary: var(--ios-fill-secondary);
+  --color-fill-tertiary: var(--ios-fill-tertiary);
+  --color-fill-quaternary: var(--ios-fill-quaternary);
+
+  --color-separator: var(--ios-separator);
+  --color-separator-opaque: var(--ios-separator-opaque);
+}
+
+@theme {
+  /* iOS Dynamic Type, default (Large) size */
+  --text-large-title: 34px;
+  --text-large-title--line-height: 41px;
+  --text-large-title--letter-spacing: 0.4px;
+  --text-title1: 28px;
+  --text-title1--line-height: 34px;
+  --text-title1--letter-spacing: 0.38px;
+  --text-title2: 22px;
+  --text-title2--line-height: 28px;
+  --text-title2--letter-spacing: -0.26px;
+  --text-title3: 20px;
+  --text-title3--line-height: 25px;
+  --text-title3--letter-spacing: -0.45px;
+  --text-headline: 17px;
+  --text-headline--line-height: 22px;
+  --text-headline--letter-spacing: -0.43px;
+  --text-headline--font-weight: 600;
+  --text-body: 17px;
+  --text-body--line-height: 22px;
+  --text-body--letter-spacing: -0.43px;
+  --text-callout: 16px;
+  --text-callout--line-height: 21px;
+  --text-callout--letter-spacing: -0.31px;
+  --text-subhead: 15px;
+  --text-subhead--line-height: 20px;
+  --text-subhead--letter-spacing: -0.23px;
+  --text-footnote: 13px;
+  --text-footnote--line-height: 18px;
+  --text-footnote--letter-spacing: -0.08px;
+  --text-caption1: 12px;
+  --text-caption1--line-height: 16px;
+  --text-caption1--letter-spacing: 0px;
+  --text-caption2: 11px;
+  --text-caption2--line-height: 13px;
+  --text-caption2--letter-spacing: 0.06px;
+
+  --font-ios: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro", "Inter", system-ui, sans-serif;
+  --font-ios-rounded: ui-rounded, "SF Pro Rounded", -apple-system, "Inter", system-ui, sans-serif;
+}
+
+/* Playground chrome (gallery, viewer toolbar), outside the device. */
+:root {
+  --pg-bg: #ececef;
+  --pg-surface: #ffffff;
+  --pg-text: #18181b;
+  --pg-muted: #71717a;
+  --pg-border: rgba(0, 0, 0, 0.08);
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --pg-bg: #0e0e10;
+    --pg-surface: #1a1a1d;
+    --pg-text: #f4f4f5;
+    --pg-muted: #a1a1aa;
+    --pg-border: rgba(255, 255, 255, 0.08);
+    color-scheme: dark;
+  }
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+body {
+  margin: 0;
+  background: var(--pg-bg);
+  color: var(--pg-text);
+  font-family: "Inter", -apple-system, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}

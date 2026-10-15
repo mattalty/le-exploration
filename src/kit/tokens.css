@@ -1,0 +1,186 @@
+/*
+ * iOS design tokens (iOS 26/27, Liquid Glass era).
+ * Raw values live as --ios-* custom properties on .ios-screen so light/dark
+ * can flip per device screen via [data-theme]. Tailwind utilities map onto them
+ * in styles.css (e.g. bg-grouped-bg, text-label-secondary, text-headline).
+ */
+
+/* In the components layer so Tailwind utilities (absolute, bg-*, etc.) always win. */
+@layer components {
+.ios-screen {
+  /* Accent / tint. Override per prototype: style={{ "--ios-tint": "#..." }} */
+  --ios-tint: var(--ios-blue);
+
+  /* System colours */
+  --ios-blue: #007aff;
+  --ios-green: #34c759;
+  --ios-red: #ff3b30;
+  --ios-orange: #ff9500;
+  --ios-yellow: #ffcc00;
+  --ios-pink: #ff2d55;
+  --ios-purple: #af52de;
+  --ios-teal: #30b0c7;
+  --ios-cyan: #32ade6;
+  --ios-indigo: #5856d6;
+  --ios-mint: #00c7be;
+  --ios-brown: #a2845e;
+  --ios-gray: #8e8e93;
+  --ios-gray2: #aeaeb2;
+  --ios-gray3: #c7c7cc;
+  --ios-gray4: #d1d1d6;
+  --ios-gray5: #e5e5ea;
+  --ios-gray6: #f2f2f7;
+
+  /* Labels */
+  --ios-label: #000000;
+  --ios-label-secondary: rgba(60, 60, 67, 0.6);
+  --ios-label-tertiary: rgba(60, 60, 67, 0.3);
+  --ios-label-quaternary: rgba(60, 60, 67, 0.18);
+
+  /* Backgrounds */
+  --ios-bg: #ffffff;
+  --ios-bg-secondary: #f2f2f7;
+  --ios-bg-tertiary: #ffffff;
+  --ios-grouped-bg: #f2f2f7;
+  --ios-grouped-bg-secondary: #ffffff;
+  --ios-grouped-bg-tertiary: #f2f2f7;
+
+  /* Fills */
+  --ios-fill: rgba(120, 120, 128, 0.2);
+  --ios-fill-secondary: rgba(120, 120, 128, 0.16);
+  --ios-fill-tertiary: rgba(118, 118, 128, 0.12);
+  --ios-fill-quaternary: rgba(116, 116, 128, 0.08);
+
+  /* Separators */
+  --ios-separator: rgba(60, 60, 67, 0.29);
+  --ios-separator-opaque: #c6c6c8;
+
+  /* Liquid Glass material */
+  --ios-glass-bg: rgba(255, 255, 255, 0.5);
+  --ios-glass-bg-strong: rgba(255, 255, 255, 0.78);
+  --ios-glass-highlight: rgba(255, 255, 255, 0.9);
+  --ios-glass-rim: rgba(255, 255, 255, 0.55);
+  --ios-glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.12), 0 1px 3px rgba(0, 0, 0, 0.06);
+  --ios-dim: rgba(0, 0, 0, 0.2);
+
+  /* Corner radii (iOS 26 uses larger, concentric corners) */
+  --ios-radius-cell: 26px;
+  --ios-radius-sheet: 38px;
+  --ios-radius-alert: 34px;
+
+  /*
+   * Safe areas. DeviceFrame sets these: simulated values in the frame,
+   * env(safe-area-inset-*) when full-screen on a real phone.
+   */
+  --safe-top: 62px;
+  --safe-bottom: 34px;
+
+  color-scheme: light;
+  color: var(--ios-label);
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro", "Inter", system-ui, sans-serif;
+  font-size: 17px;
+  line-height: 22px;
+  letter-spacing: -0.43px;
+  -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.ios-screen[data-theme="dark"] {
+  --ios-blue: #0a84ff;
+  --ios-green: #30d158;
+  --ios-red: #ff453a;
+  --ios-orange: #ff9f0a;
+  --ios-yellow: #ffd60a;
+  --ios-pink: #ff375f;
+  --ios-purple: #bf5af2;
+  --ios-teal: #40c8e0;
+  --ios-cyan: #64d2ff;
+  --ios-indigo: #5e5ce6;
+  --ios-mint: #63e6e2;
+  --ios-brown: #ac8e68;
+  --ios-gray: #8e8e93;
+  --ios-gray2: #636366;
+  --ios-gray3: #48484a;
+  --ios-gray4: #3a3a3c;
+  --ios-gray5: #2c2c2e;
+  --ios-gray6: #1c1c1e;
+
+  --ios-label: #ffffff;
+  --ios-label-secondary: rgba(235, 235, 245, 0.6);
+  --ios-label-tertiary: rgba(235, 235, 245, 0.3);
+  --ios-label-quaternary: rgba(235, 235, 245, 0.16);
+
+  --ios-bg: #000000;
+  --ios-bg-secondary: #1c1c1e;
+  --ios-bg-tertiary: #2c2c2e;
+  --ios-grouped-bg: #000000;
+  --ios-grouped-bg-secondary: #1c1c1e;
+  --ios-grouped-bg-tertiary: #2c2c2e;
+
+  --ios-fill: rgba(120, 120, 128, 0.36);
+  --ios-fill-secondary: rgba(120, 120, 128, 0.32);
+  --ios-fill-tertiary: rgba(118, 118, 128, 0.24);
+  --ios-fill-quaternary: rgba(116, 116, 128, 0.18);
+
+  --ios-separator: rgba(84, 84, 88, 0.65);
+  --ios-separator-opaque: #38383a;
+
+  --ios-glass-bg: rgba(40, 40, 44, 0.45);
+  --ios-glass-bg-strong: rgba(36, 36, 40, 0.78);
+  --ios-glass-highlight: rgba(255, 255, 255, 0.28);
+  --ios-glass-rim: rgba(255, 255, 255, 0.14);
+  --ios-glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), 0 1px 3px rgba(0, 0, 0, 0.3);
+  --ios-dim: rgba(0, 0, 0, 0.45);
+
+  color-scheme: dark;
+}
+
+/* Liquid Glass surface. Use via <Glass>; exposed as a class for one-offs. */
+.ios-glass {
+  position: relative;
+  isolation: isolate;
+  background: var(--glass-tint, var(--ios-glass-bg));
+  -webkit-backdrop-filter: blur(14px) saturate(190%) brightness(1.04);
+  backdrop-filter: blur(14px) saturate(190%) brightness(1.04);
+  box-shadow:
+    inset 0 0 0 0.5px var(--ios-glass-rim),
+    inset 0 1px 1px -0.5px var(--ios-glass-highlight),
+    inset 0 -1px 1px -0.5px var(--ios-glass-rim),
+    var(--ios-glass-shadow);
+}
+/* Specular sheen: brighter along the top-left edge, like light hitting a lens. */
+.ios-glass::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  z-index: -1;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.35) 0%,
+    rgba(255, 255, 255, 0.06) 35%,
+    rgba(255, 255, 255, 0) 60%,
+    rgba(255, 255, 255, 0.08) 100%
+  );
+  mix-blend-mode: soft-light;
+}
+.ios-glass[data-strong] {
+  background: var(--glass-tint, var(--ios-glass-bg-strong));
+}
+
+/* Hide scrollbars inside the device, iOS-style. */
+.ios-screen * {
+  scrollbar-width: none;
+}
+.ios-screen *::-webkit-scrollbar {
+  display: none;
+}
+.ios-screen input,
+.ios-screen textarea {
+  user-select: text;
+  -webkit-user-select: text;
+}
+}
